@@ -1,0 +1,20 @@
+PODS:
+  - FDFullscreenPopGesture (1.1)
+  - Masonry (1.0.2)
+
+DEPENDENCIES:
+  - FDFullscreenPopGesture (= 1.1)
+  - Masonry (= 1.0.2)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FDFullscreenPopGesture
+    - Masonry
+
+SPEC CHECKSUMS:
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+
+PODFILE CHECKSUM: 2c2b54141faac2049c4e291fc90819e0f568ec0d
+
+COCOAPODS: 1.5.2
