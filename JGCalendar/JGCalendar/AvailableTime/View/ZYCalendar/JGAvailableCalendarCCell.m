@@ -44,7 +44,9 @@
     [self addSubview:_DelIcon];
 
     [_SelectedBg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.centerY.right.equalTo(self);
+        make.left.equalTo(self.mas_left).mas_offset(-0.1);
+        make.right.equalTo(self.mas_right).mas_offset(0.1);
+        make.centerY.equalTo(self.mas_centerY);
         make.height.equalTo(@(35));
     }];
     

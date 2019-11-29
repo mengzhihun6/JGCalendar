@@ -153,9 +153,6 @@ typedef NS_ENUM(NSInteger, ArbitraryCornerRadiusViewType) {
 + (BOOL)isAllNum:(NSString *)string;
 
 
-//iOS 解决打电话反应慢的问题（换一种方式）
-+ (void)callPhoneStr:(NSString*)phoneStr  withVC:(UIViewController *)selfvc;
-
 #pragma mark - 比较版本号大小的方法
 + (BOOL)compareVesionWithServerVersion:(NSString *)version;
 
