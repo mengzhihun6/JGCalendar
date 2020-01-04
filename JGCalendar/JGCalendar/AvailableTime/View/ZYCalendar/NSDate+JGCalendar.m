@@ -317,48 +317,39 @@
     NSDate *startDate =[date dateFromString:startTime];
     NSDate *endDdate = [date dateFromString:endTime];
     
-    NSCalendar *cal = [NSCalendar currentCalendar];
-    unsigned int unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
-    NSDateComponents *dateComponents = [cal components:unitFlags fromDate:startDate toDate:endDdate options:0];
     
+    //利用NSCalendar比较日期的差异
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    /**
+     * 要比较的时间单位,常用如下,可以同时传：
+     *    NSCalendarUnitDay : 天
+     *    NSCalendarUnitYear : 年
+     *    NSCalendarUnitMonth : 月
+     *    NSCalendarUnitHour : 时
+     *    NSCalendarUnitMinute : 分
+     *    NSCalendarUnitSecond : 秒
+     */
+    NSCalendarUnit unit = NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute;//只比较天数差异
+    //比较的结果是NSDateComponents类对象
+    NSDateComponents *delta = [calendar components:unit fromDate:startDate toDate:endDdate options:0];
+//    //打印
+//    JGLog(@"%@",delta);
+//    //获取其中的"天"
+//    JGLog(@"%ld",delta.day);
+//    JGLog(@"%ld",delta.hour);
+//    JGLog(@"%ld",delta.minute);
     // 天
-    NSInteger day = [dateComponents day];
+    NSInteger day = delta.day;
     // 小时
-    NSInteger house = [dateComponents hour];
+    NSInteger house = delta.hour;
     // 分
-    NSInteger minute = [dateComponents minute];
-    // 秒
-//    NSInteger second = [dateComponents second];
+    NSInteger minute = delta.minute;
     
-    
-    NSMutableString *String = [NSMutableString string];
-    if (day != 0) {
-        [String appendFormat:@"%zd天",day];
+    if (house != 0 || minute != 0) {
+        return [NSString stringWithFormat:@"%ld天",day + 1];
+    }else {
+        return [NSString stringWithFormat:@"%ld天",day];
     }
-    
-    if (house != 0) {
-       [String appendFormat:@"%zd小时",house];
-    }
-    
-    if (minute != 0) {
-        [String appendFormat:@"%zd分钟",minute];
-    }
-    
-    
-    //    NSString *timeStr = @"";
-
-//    if (day != 0) {
-//        timeStr = [NSString stringWithFormat:@"%zd天%zd小时%zd分",day,house,minute];
-//    }
-//    else if (day==0 && house !=0) {
-//        timeStr = [NSString stringWithFormat:@"%zd小时%zd分",house,minute];
-//    }
-//    else if (day==0 && house==0 && minute!=0) {
-//        timeStr = [NSString stringWithFormat:@"%zd分",minute];
-//    }
-
-    
-    return String;
 }
 
 

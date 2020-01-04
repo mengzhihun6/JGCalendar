@@ -152,6 +152,11 @@
     
     JGLog(@"%@ - %@", self.LeftModel.toString, self.RightModel.toString);
     
+    if (self.LeftModel.toString.length && self.RightModel.toString.length && self.TimeBackInfo) {
+        self.TimeBackInfo(@[self.LeftModel,self.RightModel]);
+    }else {
+        self.TimeBackInfo(@[]);
+    }
 }
 
 @end

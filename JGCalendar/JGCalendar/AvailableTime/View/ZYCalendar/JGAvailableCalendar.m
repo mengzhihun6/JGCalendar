@@ -12,9 +12,11 @@
 #import "NSDate+JGCalendar.h"
 #import "JGCalendarDayModel.h"
 
+
+
 #import "JGAvailableTimeChooseActionSheet.h" //时间选取
 
-#define MonthCount 1 * 12 //1年
+#define MonthCount 4 //4个月
 
 @interface JGAvailableCalendar () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -70,7 +72,7 @@ static NSString * const JGAvailableCalendarCCellId = @"JGAvailableCalendarCCellI
                        
                         Model.style = CellDayTypeAllCanDay;
 
-                        for (JGAvailableDateTimeModel *mo in self.items) {
+                        for (JGCarCalendarItemsModel *mo in self.items) {
                             if ([mo.date isEqualToString:dateStr]) {
                                 // 1 全天不可租 2 半天不可租
                                 if (mo.type == 1) {
@@ -120,6 +122,30 @@ static NSString * const JGAvailableCalendarCCellId = @"JGAvailableCalendarCCellI
     }
     return _CollectionView;
 }
+
+
+- (void)setTimeArr:(NSArray *)timeArr {
+    _timeArr = timeArr;
+    
+    if (!timeArr.count) return;
+    
+    self.LeftModel = [timeArr firstObject];
+    self.RightModel = [timeArr lastObject];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        if (self.LeftDateInfo) {
+            self.LeftDateInfo(self.LeftModel);
+        }
+        
+        if (self.RightDateInfo) {
+            self.RightDateInfo(self.RightModel);
+        }
+    });
+    
+    [self AvailableTimeLogic];
+}
+
 
 
 
@@ -319,7 +345,6 @@ static NSString * const JGAvailableCalendarCCellId = @"JGAvailableCalendarCCellI
                     if (Mo.day == 1 && Mo.week == 1) {
                         
                         Mo.bgType = CellDayTypeSelRound;
-
                     }else if (Mo.week == 2 || Mo.day == 1) {
                         
                          Mo.bgType = CellDayTypeSelLeft;
@@ -376,7 +401,7 @@ static NSString * const JGAvailableCalendarCCellId = @"JGAvailableCalendarCCellI
 
 //设置子视图左右之间的距离
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
-    return 0;
+    return 0.0;
 }
 
 

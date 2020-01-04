@@ -1,7 +1,9 @@
 # JGCalendar
-    封装租车日历，添加选中效果及非可选日期排除
+    封装租车日历，添加选中效果及非可选日期排除、已选日期还原等
 
 ### 效果图
+
+<img src="./Images/Calendar.gif" width="375">
 
 <img src="./Images/1.png" width="375">  <img src="./Images/2.png" width="375"> 
 <img src="./Images/3.png" width="375">  <img src="./Images/4.png" width="375"> 

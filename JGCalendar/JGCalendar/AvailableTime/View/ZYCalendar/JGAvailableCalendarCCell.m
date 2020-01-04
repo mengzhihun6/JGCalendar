@@ -25,7 +25,6 @@
 
 - (void)configUI {
     
-    
     _SelectedBg = [UIView new];
     _SelectedBg.backgroundColor = JGHexColor(@"#7588FF");
     
@@ -131,7 +130,6 @@
      CellDayTypeSelCenter,  //被选中日期 背景 不切圆角
      CellDayTypeSelRight    //被选中日期 背景 右侧侧切圆角
      */
-    
     
     if (self.Model.bgType == CellDayTypeSelLeft) {
         

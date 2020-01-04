@@ -11,10 +11,6 @@
 #import "JGAvailableTimeBottom.h"//底部
 #import "JGAvailableCalendar.h"
 
-#import "JGAvailableDateTimeModel.h"
-
-
-
 @interface JGAvailableTimeController ()
 
 @property (nonatomic, strong) JGAvailableTimeTop *Top;
@@ -23,16 +19,40 @@
 
 @property (nonatomic, strong) JGAvailableTimeBottom *Bottom;
 
-@property (nonatomic, strong) NSMutableArray *DataArrM;
-
 @end
 
 @implementation JGAvailableTimeController
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.navigationController.fd_fullscreenPopGestureRecognizer.enabled = NO;
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    self.navigationController.fd_fullscreenPopGestureRecognizer.enabled = YES;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"清空" target:self action:@selector(rightBarButtonItemClick)];
+
+//    WEAKSELF;
+//    self.popBlock = ^(UIBarButtonItem *backItem) {
+//
+//        if (weakSelf.navItemClick) {
+//            weakSelf.navItemClick(@"监听返回");
+//            [weakSelf.navigationController popViewControllerAnimated:NO];
+//        }else {
+//            [weakSelf.navigationController popViewControllerAnimated:NO];
+//        }
+//
+//    };
+
 }
 
 
@@ -40,24 +60,6 @@
     
     [self.Calendar ClearAllSelectedDate];
 }
-
-- (NSMutableArray *)DataArrM {
-    if (!_DataArrM) {
-        _DataArrM = [NSMutableArray array];
-        
-        for (int i = 8; i < 31; i ++) {
-            
-            JGAvailableDateTimeModel *Mo = [JGAvailableDateTimeModel new];
-            Mo.type = arc4random() % 2 + 1;
-            Mo.date = [NSString stringWithFormat:@"2019-12-%02d",i];
-            
-            [_DataArrM addObject:Mo];
-        }
-    }
-    return _DataArrM;
-}
-
-
 
 
 - (void)configUI {
@@ -77,8 +79,8 @@
     
     
     _Calendar = [JGAvailableCalendar new];
-    _Calendar.items = self.DataArrM;
-    
+    _Calendar.items = self.items;
+    _Calendar.timeArr = self.timeArr;
     _Calendar.LeftDateInfo = ^(JGCalendarDayModel *LModel) {
         
         weakSelf.Top.LeftModel = LModel;
@@ -93,7 +95,14 @@
     
     
     _Bottom = [JGAvailableTimeBottom new];
-
+    _Bottom.TimeBackInfo = ^(id data) {
+        if (weakSelf.TimeBackInfo) {
+            weakSelf.TimeBackInfo(data);
+        }
+        
+        [weakSelf.navigationController popViewControllerAnimated:NO];
+    };
+    
     
     [self.view addSubview:_Top];
     [self.view addSubview:_Calendar];

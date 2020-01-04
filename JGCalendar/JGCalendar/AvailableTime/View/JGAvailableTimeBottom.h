@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 //选中的 右侧 日期模型
 @property (nonatomic, strong) JGCalendarDayModel *RightModel;
 
+@property (nonatomic, copy) ReturnBackInfo TimeBackInfo;
+
 @end
 
 NS_ASSUME_NONNULL_END

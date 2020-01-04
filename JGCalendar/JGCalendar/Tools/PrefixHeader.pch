@@ -15,7 +15,7 @@
 #import <Masonry.h>
 #import "UINavigationController+FDFullscreenPopGesture.h"
 
-#import "ZYConst.h"
+#import "JGConst.h"
 #import "JGToast.h"
 #import "JGCommonTools.h"
 

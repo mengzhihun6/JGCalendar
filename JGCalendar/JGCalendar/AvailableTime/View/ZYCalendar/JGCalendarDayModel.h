@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSInteger, ZYCalendarDayCellType) {
+typedef NS_ENUM(NSInteger, JGCalendarDayCellType) {
     CellDayTypeEmpty = 0,   //不显示
     CellDayTypePast,    //过去的日期
     CellDayTypeAllDay,    //全天不可租
@@ -21,7 +21,7 @@ typedef NS_ENUM(NSInteger, ZYCalendarDayCellType) {
 };
 
 
-typedef NS_ENUM(NSInteger, ZYCalendarDayCellBgType) {
+typedef NS_ENUM(NSInteger, JGCalendarDayCellBgType) {
     CellDayTypeSelHide = 0, //默认隐藏
     CellDayTypeSelRound,  //被选中日期 全部切圆
     CellDayTypeSelLeft,    //被选中日期 背景 左侧切圆角
@@ -32,8 +32,8 @@ typedef NS_ENUM(NSInteger, ZYCalendarDayCellBgType) {
 
 @interface JGCalendarDayModel : NSObject
 
-@property (assign, nonatomic) ZYCalendarDayCellType style;//显示的样式
-@property (assign, nonatomic) ZYCalendarDayCellBgType bgType;//背景样式
+@property (assign, nonatomic) JGCalendarDayCellType style;//显示的样式
+@property (assign, nonatomic) JGCalendarDayCellBgType bgType;//背景样式
 
 @property (nonatomic, assign) NSUInteger day;//天
 @property (nonatomic, assign) NSUInteger month;//月
