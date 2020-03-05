@@ -35,7 +35,6 @@
 		6FE887F1240FB1D5004261E1 /* JGAvailableCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE887E4240FB1D5004261E1 /* JGAvailableCalendar.m */; };
 		6FE887F2240FB1D5004261E1 /* NSDate+JGCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE887E5240FB1D5004261E1 /* NSDate+JGCalendar.m */; };
 		6FE887F3240FB1D5004261E1 /* JGAvailableTimeBottom.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE887E9240FB1D5004261E1 /* JGAvailableTimeBottom.m */; };
-		6FE887F9240FB37B004261E1 /* NSCalendar+JGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE887F8240FB37B004261E1 /* NSCalendar+JGExtension.m */; };
 		9C9FFB0A2A2D3F046489B63B /* libPods-JGCalendar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B4F80E874363C16839CB42 /* libPods-JGCalendar.a */; };
 		CB4B98B7AF0EBDDF929E6708 /* libPods-JGCalendarUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D53DA845718EE3075044730 /* libPods-JGCalendarUITests.a */; };
 /* End PBXBuildFile section */
@@ -118,8 +117,6 @@
 		6FE887E7240FB1D5004261E1 /* JGAvailableTimeBottom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGAvailableTimeBottom.h; sourceTree = "<group>"; };
 		6FE887E8240FB1D5004261E1 /* JGAvailableTimeTop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGAvailableTimeTop.h; sourceTree = "<group>"; };
 		6FE887E9240FB1D5004261E1 /* JGAvailableTimeBottom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGAvailableTimeBottom.m; sourceTree = "<group>"; };
-		6FE887F7240FB37B004261E1 /* NSCalendar+JGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+JGExtension.h"; sourceTree = "<group>"; };
-		6FE887F8240FB37B004261E1 /* NSCalendar+JGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+JGExtension.m"; sourceTree = "<group>"; };
 		AECB609ADC5D4F39D2B4AEEE /* Pods-JGCalendarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JGCalendarUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JGCalendarUITests/Pods-JGCalendarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D8B4F80E874363C16839CB42 /* libPods-JGCalendar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JGCalendar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2390EB892D3CC007386DEF9 /* Pods-JGCalendarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JGCalendarTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JGCalendarTests/Pods-JGCalendarTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -355,8 +352,6 @@
 				6FE887DF240FB1D5004261E1 /* JGAvailableCalendarCH.m */,
 				6FE887DC240FB1D5004261E1 /* JGAvailableCalendarCCell.h */,
 				6FE887E1240FB1D5004261E1 /* JGAvailableCalendarCCell.m */,
-				6FE887F7240FB37B004261E1 /* NSCalendar+JGExtension.h */,
-				6FE887F8240FB37B004261E1 /* NSCalendar+JGExtension.m */,
 				6FE887E0240FB1D5004261E1 /* NSDate+JGCalendar.h */,
 				6FE887E5240FB1D5004261E1 /* NSDate+JGCalendar.m */,
 				6FE887DB240FB1D5004261E1 /* JGAvailableTimeChooseActionSheet.h */,
@@ -583,7 +578,6 @@
 				6FE887F3240FB1D5004261E1 /* JGAvailableTimeBottom.m in Sources */,
 				6F41E4D52390AEC500492553 /* UIBarButtonItem+JGAddition.m in Sources */,
 				6FE887EA240FB1D5004261E1 /* JGAvailableTimeController.m in Sources */,
-				6FE887F9240FB37B004261E1 /* NSCalendar+JGExtension.m in Sources */,
 				6FE887EC240FB1D5004261E1 /* JGAvailableTimeTop.m in Sources */,
 				6F41E4C82390AD8A00492553 /* JGBaseView.m in Sources */,
 				6FE887ED240FB1D5004261E1 /* JGAvailableCalendarCH.m in Sources */,
