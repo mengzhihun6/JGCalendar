@@ -248,11 +248,16 @@
 - (void)setLeftModel:(JGCalendarDayModel *)LeftModel {
     _LeftModel = LeftModel;
     
+//    self.IndexBtn = _LDateBtn;
+//    [self RDateBtnClick:_RDateBtn];
     [self CalculateDate];
 }
 
 - (void)setRightModel:(JGCalendarDayModel *)RightModel {
     _RightModel = RightModel;
+    
+//    self.IndexBtn = _RDateBtn;
+
     
     [self CalculateDate];
 }
@@ -294,8 +299,19 @@
     
     //如果左侧有值 则选中右侧
     if (self.LeftModel != nil && self.RightModel == nil) {
+        
         [self RDateBtnClick:_RDateBtn];
     }
+    
+//    JGLog(@"%@ - %@", self.LeftModel.toString, self.RightModel.toString);
+    
+    //如果左右侧都有值 并且左侧选中
+    if (self.LeftModel != nil && self.RightModel != nil && _LDateBtn.isSelected) {
+        
+        [self RDateBtnClick:_RDateBtn];
+    }
+    
+    
 }
 
 

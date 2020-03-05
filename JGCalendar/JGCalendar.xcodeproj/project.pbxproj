@@ -25,16 +25,17 @@
 		6F41E4D52390AEC500492553 /* UIBarButtonItem+JGAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F41E4D42390AEC500492553 /* UIBarButtonItem+JGAddition.m */; };
 		6F41E4D92390AF0A00492553 /* JGToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F41E4D72390AF0A00492553 /* JGToast.m */; };
 		6F41E4DC2390AF2C00492553 /* JGCommonTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F41E4DA2390AF2C00492553 /* JGCommonTools.m */; };
-		6F4CF68B23C0781700D5D440 /* JGAvailableTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4CF67423C0781700D5D440 /* JGAvailableTimeController.m */; };
-		6F4CF68C23C0781700D5D440 /* JGCarCalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4CF67723C0781700D5D440 /* JGCarCalendarModel.m */; };
-		6F4CF68D23C0781700D5D440 /* JGAvailableTimeTop.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4CF67A23C0781700D5D440 /* JGAvailableTimeTop.m */; };
-		6F4CF68E23C0781700D5D440 /* JGAvailableCalendarCH.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4CF68023C0781700D5D440 /* JGAvailableCalendarCH.m */; };
-		6F4CF68F23C0781700D5D440 /* JGAvailableCalendarCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4CF68223C0781700D5D440 /* JGAvailableCalendarCCell.m */; };
-		6F4CF69023C0781700D5D440 /* JGAvailableTimeChooseActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4CF68323C0781700D5D440 /* JGAvailableTimeChooseActionSheet.m */; };
-		6F4CF69123C0781700D5D440 /* JGCalendarDayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4CF68423C0781700D5D440 /* JGCalendarDayModel.m */; };
-		6F4CF69223C0781700D5D440 /* JGAvailableCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4CF68523C0781700D5D440 /* JGAvailableCalendar.m */; };
-		6F4CF69323C0781700D5D440 /* NSDate+JGCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4CF68623C0781700D5D440 /* NSDate+JGCalendar.m */; };
-		6F4CF69423C0781700D5D440 /* JGAvailableTimeBottom.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4CF68A23C0781700D5D440 /* JGAvailableTimeBottom.m */; };
+		6FE887EA240FB1D5004261E1 /* JGAvailableTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE887D3240FB1D5004261E1 /* JGAvailableTimeController.m */; };
+		6FE887EB240FB1D5004261E1 /* JGCarCalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE887D6240FB1D5004261E1 /* JGCarCalendarModel.m */; };
+		6FE887EC240FB1D5004261E1 /* JGAvailableTimeTop.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE887D9240FB1D5004261E1 /* JGAvailableTimeTop.m */; };
+		6FE887ED240FB1D5004261E1 /* JGAvailableCalendarCH.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE887DF240FB1D5004261E1 /* JGAvailableCalendarCH.m */; };
+		6FE887EE240FB1D5004261E1 /* JGAvailableCalendarCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE887E1240FB1D5004261E1 /* JGAvailableCalendarCCell.m */; };
+		6FE887EF240FB1D5004261E1 /* JGAvailableTimeChooseActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE887E2240FB1D5004261E1 /* JGAvailableTimeChooseActionSheet.m */; };
+		6FE887F0240FB1D5004261E1 /* JGCalendarDayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE887E3240FB1D5004261E1 /* JGCalendarDayModel.m */; };
+		6FE887F1240FB1D5004261E1 /* JGAvailableCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE887E4240FB1D5004261E1 /* JGAvailableCalendar.m */; };
+		6FE887F2240FB1D5004261E1 /* NSDate+JGCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE887E5240FB1D5004261E1 /* NSDate+JGCalendar.m */; };
+		6FE887F3240FB1D5004261E1 /* JGAvailableTimeBottom.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE887E9240FB1D5004261E1 /* JGAvailableTimeBottom.m */; };
+		6FE887F9240FB37B004261E1 /* NSCalendar+JGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE887F8240FB37B004261E1 /* NSCalendar+JGExtension.m */; };
 		9C9FFB0A2A2D3F046489B63B /* libPods-JGCalendar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B4F80E874363C16839CB42 /* libPods-JGCalendar.a */; };
 		CB4B98B7AF0EBDDF929E6708 /* libPods-JGCalendarUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D53DA845718EE3075044730 /* libPods-JGCalendarUITests.a */; };
 /* End PBXBuildFile section */
@@ -97,26 +98,28 @@
 		6F41E4D82390AF0A00492553 /* JGToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGToast.h; sourceTree = "<group>"; };
 		6F41E4DA2390AF2C00492553 /* JGCommonTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGCommonTools.m; sourceTree = "<group>"; };
 		6F41E4DB2390AF2C00492553 /* JGCommonTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGCommonTools.h; sourceTree = "<group>"; };
-		6F4CF67423C0781700D5D440 /* JGAvailableTimeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGAvailableTimeController.m; sourceTree = "<group>"; };
-		6F4CF67523C0781700D5D440 /* JGAvailableTimeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGAvailableTimeController.h; sourceTree = "<group>"; };
-		6F4CF67723C0781700D5D440 /* JGCarCalendarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGCarCalendarModel.m; sourceTree = "<group>"; };
-		6F4CF67823C0781700D5D440 /* JGCarCalendarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGCarCalendarModel.h; sourceTree = "<group>"; };
-		6F4CF67A23C0781700D5D440 /* JGAvailableTimeTop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGAvailableTimeTop.m; sourceTree = "<group>"; };
-		6F4CF67C23C0781700D5D440 /* JGAvailableTimeChooseActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGAvailableTimeChooseActionSheet.h; sourceTree = "<group>"; };
-		6F4CF67D23C0781700D5D440 /* JGAvailableCalendarCCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGAvailableCalendarCCell.h; sourceTree = "<group>"; };
-		6F4CF67E23C0781700D5D440 /* JGCalendarDayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGCalendarDayModel.h; sourceTree = "<group>"; };
-		6F4CF67F23C0781700D5D440 /* JGAvailableCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGAvailableCalendar.h; sourceTree = "<group>"; };
-		6F4CF68023C0781700D5D440 /* JGAvailableCalendarCH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGAvailableCalendarCH.m; sourceTree = "<group>"; };
-		6F4CF68123C0781700D5D440 /* NSDate+JGCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+JGCalendar.h"; sourceTree = "<group>"; };
-		6F4CF68223C0781700D5D440 /* JGAvailableCalendarCCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGAvailableCalendarCCell.m; sourceTree = "<group>"; };
-		6F4CF68323C0781700D5D440 /* JGAvailableTimeChooseActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGAvailableTimeChooseActionSheet.m; sourceTree = "<group>"; };
-		6F4CF68423C0781700D5D440 /* JGCalendarDayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGCalendarDayModel.m; sourceTree = "<group>"; };
-		6F4CF68523C0781700D5D440 /* JGAvailableCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGAvailableCalendar.m; sourceTree = "<group>"; };
-		6F4CF68623C0781700D5D440 /* NSDate+JGCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+JGCalendar.m"; sourceTree = "<group>"; };
-		6F4CF68723C0781700D5D440 /* JGAvailableCalendarCH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGAvailableCalendarCH.h; sourceTree = "<group>"; };
-		6F4CF68823C0781700D5D440 /* JGAvailableTimeBottom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGAvailableTimeBottom.h; sourceTree = "<group>"; };
-		6F4CF68923C0781700D5D440 /* JGAvailableTimeTop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGAvailableTimeTop.h; sourceTree = "<group>"; };
-		6F4CF68A23C0781700D5D440 /* JGAvailableTimeBottom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGAvailableTimeBottom.m; sourceTree = "<group>"; };
+		6FE887D3240FB1D5004261E1 /* JGAvailableTimeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGAvailableTimeController.m; sourceTree = "<group>"; };
+		6FE887D4240FB1D5004261E1 /* JGAvailableTimeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGAvailableTimeController.h; sourceTree = "<group>"; };
+		6FE887D6240FB1D5004261E1 /* JGCarCalendarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGCarCalendarModel.m; sourceTree = "<group>"; };
+		6FE887D7240FB1D5004261E1 /* JGCarCalendarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGCarCalendarModel.h; sourceTree = "<group>"; };
+		6FE887D9240FB1D5004261E1 /* JGAvailableTimeTop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGAvailableTimeTop.m; sourceTree = "<group>"; };
+		6FE887DB240FB1D5004261E1 /* JGAvailableTimeChooseActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGAvailableTimeChooseActionSheet.h; sourceTree = "<group>"; };
+		6FE887DC240FB1D5004261E1 /* JGAvailableCalendarCCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGAvailableCalendarCCell.h; sourceTree = "<group>"; };
+		6FE887DD240FB1D5004261E1 /* JGCalendarDayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGCalendarDayModel.h; sourceTree = "<group>"; };
+		6FE887DE240FB1D5004261E1 /* JGAvailableCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGAvailableCalendar.h; sourceTree = "<group>"; };
+		6FE887DF240FB1D5004261E1 /* JGAvailableCalendarCH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGAvailableCalendarCH.m; sourceTree = "<group>"; };
+		6FE887E0240FB1D5004261E1 /* NSDate+JGCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+JGCalendar.h"; sourceTree = "<group>"; };
+		6FE887E1240FB1D5004261E1 /* JGAvailableCalendarCCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGAvailableCalendarCCell.m; sourceTree = "<group>"; };
+		6FE887E2240FB1D5004261E1 /* JGAvailableTimeChooseActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGAvailableTimeChooseActionSheet.m; sourceTree = "<group>"; };
+		6FE887E3240FB1D5004261E1 /* JGCalendarDayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGCalendarDayModel.m; sourceTree = "<group>"; };
+		6FE887E4240FB1D5004261E1 /* JGAvailableCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGAvailableCalendar.m; sourceTree = "<group>"; };
+		6FE887E5240FB1D5004261E1 /* NSDate+JGCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+JGCalendar.m"; sourceTree = "<group>"; };
+		6FE887E6240FB1D5004261E1 /* JGAvailableCalendarCH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGAvailableCalendarCH.h; sourceTree = "<group>"; };
+		6FE887E7240FB1D5004261E1 /* JGAvailableTimeBottom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGAvailableTimeBottom.h; sourceTree = "<group>"; };
+		6FE887E8240FB1D5004261E1 /* JGAvailableTimeTop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGAvailableTimeTop.h; sourceTree = "<group>"; };
+		6FE887E9240FB1D5004261E1 /* JGAvailableTimeBottom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGAvailableTimeBottom.m; sourceTree = "<group>"; };
+		6FE887F7240FB37B004261E1 /* NSCalendar+JGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+JGExtension.h"; sourceTree = "<group>"; };
+		6FE887F8240FB37B004261E1 /* NSCalendar+JGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+JGExtension.m"; sourceTree = "<group>"; };
 		AECB609ADC5D4F39D2B4AEEE /* Pods-JGCalendarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JGCalendarUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JGCalendarUITests/Pods-JGCalendarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D8B4F80E874363C16839CB42 /* libPods-JGCalendar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JGCalendar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2390EB892D3CC007386DEF9 /* Pods-JGCalendarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JGCalendarTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JGCalendarTests/Pods-JGCalendarTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -186,7 +189,7 @@
 		6F41E4552390AAF200492553 /* JGCalendar */ = {
 			isa = PBXGroup;
 			children = (
-				6F4CF67223C0781700D5D440 /* AvailableTime */,
+				6FE887D1240FB1D5004261E1 /* AvailableTime */,
 				6F41E4B02390AD8900492553 /* Base */,
 				6F41E4882390AB0100492553 /* Apps */,
 				6F41E48A2390ACDD00492553 /* Ctrls */,
@@ -301,63 +304,65 @@
 			path = JGToast;
 			sourceTree = "<group>";
 		};
-		6F4CF67223C0781700D5D440 /* AvailableTime */ = {
+		6FE887D1240FB1D5004261E1 /* AvailableTime */ = {
 			isa = PBXGroup;
 			children = (
-				6F4CF67323C0781700D5D440 /* Ctrl */,
-				6F4CF67623C0781700D5D440 /* Model */,
-				6F4CF67923C0781700D5D440 /* View */,
+				6FE887D2240FB1D5004261E1 /* Ctrl */,
+				6FE887D5240FB1D5004261E1 /* Model */,
+				6FE887D8240FB1D5004261E1 /* View */,
 			);
 			path = AvailableTime;
 			sourceTree = "<group>";
 		};
-		6F4CF67323C0781700D5D440 /* Ctrl */ = {
+		6FE887D2240FB1D5004261E1 /* Ctrl */ = {
 			isa = PBXGroup;
 			children = (
-				6F4CF67523C0781700D5D440 /* JGAvailableTimeController.h */,
-				6F4CF67423C0781700D5D440 /* JGAvailableTimeController.m */,
+				6FE887D4240FB1D5004261E1 /* JGAvailableTimeController.h */,
+				6FE887D3240FB1D5004261E1 /* JGAvailableTimeController.m */,
 			);
 			path = Ctrl;
 			sourceTree = "<group>";
 		};
-		6F4CF67623C0781700D5D440 /* Model */ = {
+		6FE887D5240FB1D5004261E1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6F4CF67823C0781700D5D440 /* JGCarCalendarModel.h */,
-				6F4CF67723C0781700D5D440 /* JGCarCalendarModel.m */,
+				6FE887D7240FB1D5004261E1 /* JGCarCalendarModel.h */,
+				6FE887D6240FB1D5004261E1 /* JGCarCalendarModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		6F4CF67923C0781700D5D440 /* View */ = {
+		6FE887D8240FB1D5004261E1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6F4CF68923C0781700D5D440 /* JGAvailableTimeTop.h */,
-				6F4CF67A23C0781700D5D440 /* JGAvailableTimeTop.m */,
-				6F4CF67B23C0781700D5D440 /* ZYCalendar */,
-				6F4CF68823C0781700D5D440 /* JGAvailableTimeBottom.h */,
-				6F4CF68A23C0781700D5D440 /* JGAvailableTimeBottom.m */,
+				6FE887DA240FB1D5004261E1 /* JGCalendar */,
+				6FE887E8240FB1D5004261E1 /* JGAvailableTimeTop.h */,
+				6FE887D9240FB1D5004261E1 /* JGAvailableTimeTop.m */,
+				6FE887E7240FB1D5004261E1 /* JGAvailableTimeBottom.h */,
+				6FE887E9240FB1D5004261E1 /* JGAvailableTimeBottom.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		6F4CF67B23C0781700D5D440 /* ZYCalendar */ = {
+		6FE887DA240FB1D5004261E1 /* JGCalendar */ = {
 			isa = PBXGroup;
 			children = (
-				6F4CF67E23C0781700D5D440 /* JGCalendarDayModel.h */,
-				6F4CF68423C0781700D5D440 /* JGCalendarDayModel.m */,
-				6F4CF67F23C0781700D5D440 /* JGAvailableCalendar.h */,
-				6F4CF68523C0781700D5D440 /* JGAvailableCalendar.m */,
-				6F4CF68723C0781700D5D440 /* JGAvailableCalendarCH.h */,
-				6F4CF68023C0781700D5D440 /* JGAvailableCalendarCH.m */,
-				6F4CF67D23C0781700D5D440 /* JGAvailableCalendarCCell.h */,
-				6F4CF68223C0781700D5D440 /* JGAvailableCalendarCCell.m */,
-				6F4CF67C23C0781700D5D440 /* JGAvailableTimeChooseActionSheet.h */,
-				6F4CF68323C0781700D5D440 /* JGAvailableTimeChooseActionSheet.m */,
-				6F4CF68123C0781700D5D440 /* NSDate+JGCalendar.h */,
-				6F4CF68623C0781700D5D440 /* NSDate+JGCalendar.m */,
+				6FE887DD240FB1D5004261E1 /* JGCalendarDayModel.h */,
+				6FE887E3240FB1D5004261E1 /* JGCalendarDayModel.m */,
+				6FE887DE240FB1D5004261E1 /* JGAvailableCalendar.h */,
+				6FE887E4240FB1D5004261E1 /* JGAvailableCalendar.m */,
+				6FE887E6240FB1D5004261E1 /* JGAvailableCalendarCH.h */,
+				6FE887DF240FB1D5004261E1 /* JGAvailableCalendarCH.m */,
+				6FE887DC240FB1D5004261E1 /* JGAvailableCalendarCCell.h */,
+				6FE887E1240FB1D5004261E1 /* JGAvailableCalendarCCell.m */,
+				6FE887F7240FB37B004261E1 /* NSCalendar+JGExtension.h */,
+				6FE887F8240FB37B004261E1 /* NSCalendar+JGExtension.m */,
+				6FE887E0240FB1D5004261E1 /* NSDate+JGCalendar.h */,
+				6FE887E5240FB1D5004261E1 /* NSDate+JGCalendar.m */,
+				6FE887DB240FB1D5004261E1 /* JGAvailableTimeChooseActionSheet.h */,
+				6FE887E2240FB1D5004261E1 /* JGAvailableTimeChooseActionSheet.m */,
 			);
-			path = ZYCalendar;
+			path = JGCalendar;
 			sourceTree = "<group>";
 		};
 		87F8AAB6200EEE1BE0F10A7A /* Pods */ = {
@@ -563,26 +568,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F4CF69323C0781700D5D440 /* NSDate+JGCalendar.m in Sources */,
-				6F4CF69023C0781700D5D440 /* JGAvailableTimeChooseActionSheet.m in Sources */,
-				6F4CF69123C0781700D5D440 /* JGCalendarDayModel.m in Sources */,
+				6FE887F2240FB1D5004261E1 /* NSDate+JGCalendar.m in Sources */,
+				6FE887EF240FB1D5004261E1 /* JGAvailableTimeChooseActionSheet.m in Sources */,
+				6FE887F0240FB1D5004261E1 /* JGCalendarDayModel.m in Sources */,
 				6F41E4C62390AD8A00492553 /* JGBaseCollectionViewCell.m in Sources */,
 				6F41E4CB2390ADFE00492553 /* UIColor+JGHexColor.m in Sources */,
 				6F41E45B2390AAF200492553 /* ViewController.m in Sources */,
 				6F41E4DC2390AF2C00492553 /* JGCommonTools.m in Sources */,
 				6F41E4CF2390AE5E00492553 /* UIButton+JGLayout.m in Sources */,
 				6F41E4662390AAF400492553 /* main.m in Sources */,
-				6F4CF68F23C0781700D5D440 /* JGAvailableCalendarCCell.m in Sources */,
+				6FE887EE240FB1D5004261E1 /* JGAvailableCalendarCCell.m in Sources */,
 				6F41E4D22390AE9700492553 /* JGConst.m in Sources */,
-				6F4CF69223C0781700D5D440 /* JGAvailableCalendar.m in Sources */,
-				6F4CF69423C0781700D5D440 /* JGAvailableTimeBottom.m in Sources */,
+				6FE887F1240FB1D5004261E1 /* JGAvailableCalendar.m in Sources */,
+				6FE887F3240FB1D5004261E1 /* JGAvailableTimeBottom.m in Sources */,
 				6F41E4D52390AEC500492553 /* UIBarButtonItem+JGAddition.m in Sources */,
-				6F4CF68B23C0781700D5D440 /* JGAvailableTimeController.m in Sources */,
-				6F4CF68D23C0781700D5D440 /* JGAvailableTimeTop.m in Sources */,
+				6FE887EA240FB1D5004261E1 /* JGAvailableTimeController.m in Sources */,
+				6FE887F9240FB37B004261E1 /* NSCalendar+JGExtension.m in Sources */,
+				6FE887EC240FB1D5004261E1 /* JGAvailableTimeTop.m in Sources */,
 				6F41E4C82390AD8A00492553 /* JGBaseView.m in Sources */,
-				6F4CF68E23C0781700D5D440 /* JGAvailableCalendarCH.m in Sources */,
+				6FE887ED240FB1D5004261E1 /* JGAvailableCalendarCH.m in Sources */,
 				6F41E4582390AAF200492553 /* AppDelegate.m in Sources */,
-				6F4CF68C23C0781700D5D440 /* JGCarCalendarModel.m in Sources */,
+				6FE887EB240FB1D5004261E1 /* JGCarCalendarModel.m in Sources */,
 				6F41E4D92390AF0A00492553 /* JGToast.m in Sources */,
 				6F41E4C42390AD8A00492553 /* JGBaseViewController.m in Sources */,
 			);

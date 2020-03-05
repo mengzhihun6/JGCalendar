@@ -16,7 +16,7 @@
 
 #import "JGAvailableTimeChooseActionSheet.h" //时间选取
 
-#define MonthCount 4 //4个月
+#define MonthCount 5 //5个月
 
 @interface JGAvailableCalendar () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -144,9 +144,16 @@ static NSString * const JGAvailableCalendarCCellId = @"JGAvailableCalendarCCellI
     });
     
     [self AvailableTimeLogic];
+    
+    //滚动到 选中日期
+    NSDate *CurDate = [NSDate date];
+    NSInteger Section = self.LeftModel.month - CurDate.dateMonth + 1;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+          [self.CollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:Section] atScrollPosition:UICollectionViewScrollPositionBottom animated:YES];
+    });
 }
-
-
 
 
 - (void)configUI {
@@ -209,36 +216,43 @@ static NSString * const JGAvailableCalendarCCellId = @"JGAvailableCalendarCCellI
     if (Model.style == CellDayTypePartDay || Model.style == CellDayTypeAllCanDay) {
         
         JGAvailableTimeChooseActionSheet *sheet = [JGAvailableTimeChooseActionSheet new];
+        sheet.StartModel = Model;
         WEAKSELF;
         sheet.TimeBackInfo = ^(NSString *timeStr) {
             
-            Model.timeStr = timeStr;
+//            Model.timeStr = timeStr;
             
 //            JGLog(@"-----%@",Model.toString);
             //记录左侧模型
-            if (self.isLeftCanSel) {
-                self.LeftModel = Model;
+            if (weakSelf.isLeftCanSel) {
+                
+                weakSelf.LeftModel = [Model copy];
+                weakSelf.LeftModel.timeStr = timeStr;
+                weakSelf.RightModel = nil;
             }
             
             //记录右侧模型
-            if (self.isRightCanSel) {
-                self.RightModel = Model;
+            if (weakSelf.isRightCanSel) {
+                weakSelf.RightModel = [Model copy];
+                weakSelf.RightModel.timeStr = timeStr;
             }
             
-            if (self.LeftModel != nil && self.RightModel != nil) {
+            if (weakSelf.LeftModel != nil && weakSelf.RightModel != nil) {
                 
                //比较选中的两个日期
-                int result = [NSDate compareOneDay:[NSDate dateFromString:self.RightModel.toString] withAnotherDay:[NSDate dateFromString:self.LeftModel.toString]];
+                int result = [NSDate compareOneDay:[NSDate dateFromString:weakSelf.RightModel.toString] withAnotherDay:[NSDate dateFromString:weakSelf.LeftModel.toString]];
+                
+//                JGLog(@"\n%@ \n %@", self.LeftModel.toString, self.RightModel.toString);
                 
                 NSInteger Index = -1;
                 //判断选中的两个日期间是否都可以租车
-                for (NSArray *MonthArr in self.calendarMonth) {
+                for (NSArray *MonthArr in weakSelf.calendarMonth) {
                     
                     for (JGCalendarDayModel *Mo in MonthArr) {
                  
                         //比较两个日期
-                        int lResult = [NSDate compareOneDay:Mo.date withAnotherDay:self.LeftModel.date];
-                        int rResult = [NSDate compareOneDay:Mo.date withAnotherDay:self.RightModel.date];
+                        int lResult = [NSDate compareOneDay:Mo.date withAnotherDay:weakSelf.LeftModel.date];
+                        int rResult = [NSDate compareOneDay:Mo.date withAnotherDay:weakSelf.RightModel.date];
                         
                          if (lResult == 1 && rResult == -1) {
                           
@@ -255,16 +269,31 @@ static NSString * const JGAvailableCalendarCCellId = @"JGAvailableCalendarCCellI
                 
                 if (Index == -1) {
                     
+                    //先复原
+                    [weakSelf ReSetAvailableTimeLogic];
+                    
                     if (result == -1) {
-                        //LeftModel 和 RightModel 需要交换 以保证开始时间小于结束时间
-                        JGCalendarDayModel *tempModel = self.LeftModel;
-                        self.LeftModel = self.RightModel;
-                        self.RightModel = tempModel;
+//                        //LeftModel 和 RightModel 需要交换 以保证开始时间小于结束时间
+//                        JGCalendarDayModel *tempModel = self.LeftModel;
+//                        self.LeftModel = self.RightModel;
+//                        self.RightModel = tempModel;
+//
+//                        //可使用时间渲染
+//                        [weakSelf AvailableTimeLogic];
                         
+//                        [self ClearAllSelectedDate];
+//                        self.RightModel
+//                        self.RightModel = nil;
+ 
+                        
+                        weakSelf.LeftModel = [Model copy];
+                        weakSelf.LeftModel.timeStr = timeStr;
+                        weakSelf.RightModel = nil;
                         //可使用时间渲染
                         [weakSelf AvailableTimeLogic];
-                    }else if (result == 1) {
                         
+                    }else if (result == 1) {
+//                         [self ReSetAvailableTimeLogic];
                         //可使用时间渲染
                         [weakSelf AvailableTimeLogic];
                     }else {
@@ -288,6 +317,21 @@ static NSString * const JGAvailableCalendarCCellId = @"JGAvailableCalendarCCellI
     }
 }
 
+
+- (void)ReSetAvailableTimeLogic {
+    
+    
+    for (NSArray *MonthArr in self.calendarMonth) {
+        
+        for (JGCalendarDayModel *Mo in MonthArr) {
+            
+            Mo.bgType = CellDayTypeSelHide;
+        }
+    }
+}
+
+
+
 #pragma mark - 已选时间渲染 -
 - (void)AvailableTimeLogic {
     
@@ -304,7 +348,9 @@ static NSString * const JGAvailableCalendarCCellId = @"JGAvailableCalendarCCellI
             
             Mo.bgType = CellDayTypeSelHide;
             
-            if (self.RightModel == nil) { //只选了左侧一个时间值
+            BOOL isSameDay = (self.LeftModel.year == self.RightModel.year && self.LeftModel.month == self.RightModel.month && self.LeftModel.day == self.RightModel.day);
+            
+            if (self.RightModel == nil || isSameDay) { //只选了左侧一个时间值
                 
                 //比较两个日期
                 int result = [NSDate compareOneDay:Mo.date withAnotherDay:self.LeftModel.date];
@@ -313,50 +359,49 @@ static NSString * const JGAvailableCalendarCCellId = @"JGAvailableCalendarCCellI
                 }
             }else {//选取了两个时间值
                 
-                
-                //比较两个日期
-                int lResult = [NSDate compareOneDay:Mo.date withAnotherDay:self.LeftModel.date];
-                int rResult = [NSDate compareOneDay:Mo.date withAnotherDay:self.RightModel.date];
-                
-                /*
-                 1周日 2周一 3周二 4周三 5周四 6周五 7周六
-                 */
-                
-                if (lResult == 0) {
+                    //比较两个日期
+                    int lResult = [NSDate compareOneDay:Mo.date withAnotherDay:self.LeftModel.date];
+                    int rResult = [NSDate compareOneDay:Mo.date withAnotherDay:self.RightModel.date];
                     
-                    if (Mo.week == 1 || Mo.day == Mo.date.numberOfDaysInCurrentMonth) {
-                        Mo.bgType = CellDayTypeSelRound;
-                    }else {
-                        Mo.bgType = CellDayTypeSelLeft;
+                    /*
+                     1周日 2周一 3周二 4周三 5周四 6周五 7周六
+                     */
+                    
+                    if (lResult == 0) {
+                        
+                        if (Mo.week == 1 || Mo.day == Mo.date.numberOfDaysInCurrentMonth) {
+                            Mo.bgType = CellDayTypeSelRound;
+                        }else {
+                            Mo.bgType = CellDayTypeSelLeft;
+                        }
+                    }
+                    
+                    if (rResult == 0) {
+                        
+                        if (Mo.week == 2 || Mo.day == 1) {
+                            Mo.bgType = CellDayTypeSelRound;
+                        }else {
+                            Mo.bgType = CellDayTypeSelRight;
+                        }
+                    }
+                    
+                    if (lResult == 1 && rResult == -1) {
+                        
+                        if (Mo.day == 1 && Mo.week == 1) {
+                            
+                            Mo.bgType = CellDayTypeSelRound;
+                        }else if (Mo.week == 2 || Mo.day == 1) {
+                            
+                            Mo.bgType = CellDayTypeSelLeft;
+                        }else if (Mo.week == 1 || Mo.day == Mo.date.numberOfDaysInCurrentMonth) {
+                            
+                            Mo.bgType = CellDayTypeSelRight;
+                        }else {
+                            
+                            Mo.bgType = CellDayTypeSelCenter;
+                        }
                     }
                 }
-                
-                if (rResult == 0) {
-                    
-                    if (Mo.week == 2 || Mo.day == 1) {
-                        Mo.bgType = CellDayTypeSelRound;
-                    }else {
-                        Mo.bgType = CellDayTypeSelRight;
-                    }
-                }
-                
-                if (lResult == 1 && rResult == -1) {
-                    
-                    if (Mo.day == 1 && Mo.week == 1) {
-                        
-                        Mo.bgType = CellDayTypeSelRound;
-                    }else if (Mo.week == 2 || Mo.day == 1) {
-                        
-                         Mo.bgType = CellDayTypeSelLeft;
-                    }else if (Mo.week == 1 || Mo.day == Mo.date.numberOfDaysInCurrentMonth) {
-                        
-                        Mo.bgType = CellDayTypeSelRight;
-                    }else {
-                        
-                        Mo.bgType = CellDayTypeSelCenter;
-                    }
-                }
-            }
         }
     }
     

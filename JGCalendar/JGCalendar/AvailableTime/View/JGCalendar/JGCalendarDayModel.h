@@ -30,7 +30,7 @@ typedef NS_ENUM(NSInteger, JGCalendarDayCellBgType) {
 };
 
 
-@interface JGCalendarDayModel : NSObject
+@interface JGCalendarDayModel : NSObject <NSCopying>
 
 @property (assign, nonatomic) JGCalendarDayCellType style;//显示的样式
 @property (assign, nonatomic) JGCalendarDayCellBgType bgType;//背景样式

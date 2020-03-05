@@ -58,11 +58,19 @@
 
 - (void)rightBarButtonItemClick {
     
+//    self.Calendar.isLeftCanSel = YES;
+    
     [self.Calendar ClearAllSelectedDate];
 }
 
 
 - (void)configUI {
+    
+    //数据还原时必须有开始时间和结束时间
+    if (self.timeArr.count != 2) {
+        self.timeArr = @[];
+    }
+    
     
     WEAKSELF;
     _Top = [JGAvailableTimeTop new];

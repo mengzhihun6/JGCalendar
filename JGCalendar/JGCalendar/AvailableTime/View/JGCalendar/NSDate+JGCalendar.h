@@ -12,7 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSDate (JGCalendar)
 
-
+/**
+ *  获得当前 NSDate 对象对应的分钟
+ */
+- (NSInteger)dateMinute;
+/**
+ *  获得当前 NSDate 对象对应的小时
+ */
+- (NSInteger)dateHour;
 /**
  *  获得当前 NSDate 对象对应的日子
  */
@@ -88,6 +95,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 //两个时间相差多少天多少小时多少分
 + (NSString *)dateTimeDifferenceWithStartTime:(NSString *)startTime endTime:(NSString *)endTime;
+
+/**
+ *  是否超时
+ */
+- (BOOL)isTimeout;
 
 @end
 

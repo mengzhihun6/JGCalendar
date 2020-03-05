@@ -154,9 +154,12 @@
     
     if (self.LeftModel.toString.length && self.RightModel.toString.length && self.TimeBackInfo) {
         self.TimeBackInfo(@[self.LeftModel,self.RightModel]);
-    }else {
-        self.TimeBackInfo(@[]);
     }
+
+    if (!self.LeftModel.toString.length && !self.RightModel.toString.length && self.TimeBackInfo) {
+
+        self.TimeBackInfo(@[]);
+    }    
 }
 
 @end

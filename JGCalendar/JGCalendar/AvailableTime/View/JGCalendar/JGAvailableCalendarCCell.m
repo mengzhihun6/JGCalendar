@@ -43,8 +43,8 @@
     [self addSubview:_DelIcon];
 
     [_SelectedBg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.mas_left).mas_offset(-0.1);
-        make.right.equalTo(self.mas_right).mas_offset(0.1);
+        make.left.equalTo(self.mas_left).mas_offset(-1.0);
+        make.right.equalTo(self.mas_right).mas_offset(1.0);
         make.centerY.equalTo(self.mas_centerY);
         make.height.equalTo(@(35));
     }];
@@ -68,7 +68,6 @@
     _Model = Model;
     
     _TitleLbl.hidden = (Model.style == CellDayTypeEmpty);
-    _SelectedBg.hidden = (Model.bgType == CellDayTypeSelHide);
     
     
     /*
@@ -81,7 +80,9 @@
      */
     
     _TitleLbl.text = [NSString stringWithFormat:@"%ld", Model.day];
+    _SelectedBg.hidden = (Model.bgType == CellDayTypeSelHide);
 
+    
     _DelIcon.hidden = YES;
     _BgIcon.hidden = YES;
 
@@ -94,14 +95,11 @@
         _DelIcon.hidden = NO;
         _DelIcon.image = JGImage(@"calendar_del_line");
         _TitleLbl.textColor = JG999Color;
-
-        
     }else if (Model.style == CellDayTypePartDay) {
         
         _BgIcon.hidden = NO;
         _BgIcon.image = JGImage(@"calendar_part_time_big");
         _TitleLbl.textColor = JG333Color;
-
     }else if (Model.style == CellDayTypeAllCanDay) {
         
         _BgIcon.hidden = NO;
@@ -131,6 +129,9 @@
      CellDayTypeSelRight    //被选中日期 背景 右侧侧切圆角
      */
     
+//    JGLog(@"bgType:%ld",(long)self.Model.bgType);
+    
+
     if (self.Model.bgType == CellDayTypeSelLeft) {
         
         [JGCommonTools configArbitraryCornerRadiusView:_SelectedBg cornerRadius:17.5 withType:ArbitraryCornerRadiusViewTypeTopLeftBottomLeft];

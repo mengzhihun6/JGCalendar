@@ -10,6 +10,23 @@
 
 @implementation JGCalendarDayModel
 
+- (id)copyWithZone:(NSZone *)zone {
+    
+    JGCalendarDayModel *Model = [[[self class] allocWithZone:zone] init];
+    
+    Model.year = self.year;
+    Model.month = self.month;
+    Model.day = self.day;
+    Model.week = self.week;
+    Model.style = self.style;
+    Model.bgType = self.bgType;
+    Model.timeStr = self.timeStr;
+    
+    
+    return Model;
+}
+
+
 
 + (JGCalendarDayModel *)calendarDayWithYear:(NSUInteger)year month:(NSUInteger)month day:(NSUInteger)day {
     

@@ -8,6 +8,7 @@
 
 #import "JGAvailableTimeChooseActionSheet.h"
 
+
 #define AlertHeight (kDeviceHight - 274)
 
 
@@ -55,10 +56,6 @@
 
 
 
-
-
-
-
 @interface JGAvailableTimeChooseActionSheet () <UIPickerViewDelegate,UIPickerViewDataSource>
 
 /** 弹窗 */
@@ -67,6 +64,9 @@
 @property (nonatomic, strong) UILabel *TitleLbl;
 //picker
 @property (strong, nonatomic) UIPickerView *pickerView;
+//下一步
+@property (strong, nonatomic) UIButton *nextBtn;
+@property (strong, nonatomic) UILabel *colonLbl;
 //保存自定义的小时
 @property (nonatomic, strong) NSArray *HourArrM;
 //保存自定义的分钟
@@ -75,6 +75,15 @@
 @property (nonatomic, copy) NSString *HourStr;
 //记录选中的分钟  默认00
 @property (nonatomic, copy) NSString *MinuteStr;
+//当前小时
+@property (nonatomic, assign) NSInteger CurrentHour;
+//当前分钟
+@property (nonatomic, assign) NSInteger CurrentMinute;
+
+@property (nonatomic, assign) BOOL isTimeOut;
+
+
+
 @end
 
 
@@ -99,6 +108,8 @@
     self.frame = [UIScreen mainScreen].bounds;
     self.backgroundColor = [UIColor colorWithWhite:0.01 alpha:0.5];
     
+    self.CurrentHour = -1;
+    self.CurrentMinute = -1;
     _HourStr = @"00";
     _MinuteStr = @"00";
     
@@ -118,31 +129,33 @@
     _TitleLbl = [UILabel new];
     _TitleLbl.textColor = JG333Color;
     _TitleLbl.font = JGFont(16);
-    _TitleLbl.text = @"请选择取车时间";
+    _TitleLbl.text = @"请选择时间";
     
-    UIButton *nextBtn = [UIButton new];
-    nextBtn.titleLabel.font = JGFont(12);
-    nextBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    [nextBtn setTitleColor:JG333Color forState:UIControlStateNormal];
-    [nextBtn setTitle:@"下一步" forState:UIControlStateNormal];
-    [nextBtn addTarget:self action:@selector(nextBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    _nextBtn = [UIButton new];
+    _nextBtn.titleLabel.font = JGFont(12);
+    _nextBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    [_nextBtn setTitleColor:JG333Color forState:UIControlStateNormal];
+    [_nextBtn setTitleColor:JG999Color forState:UIControlStateDisabled];
+
+    [_nextBtn setTitle:@"下一步" forState:UIControlStateNormal];
+    [_nextBtn addTarget:self action:@selector(nextBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
     
     _pickerView = [UIPickerView new];
     _pickerView.delegate = self;
     _pickerView.dataSource = self;
     
-    UILabel *colonLbl = [UILabel new];
-    colonLbl.textColor = JGHexColor(@"#282828");
-    colonLbl.font = JGFont(18);
-    colonLbl.text = @":";
+    _colonLbl = [UILabel new];
+    _colonLbl.textColor = JGHexColor(@"#282828");
+    _colonLbl.font = JGFont(18);
+    _colonLbl.text = @":";
     
     
     [_alertView addSubview:cancelBtn];
     [_alertView addSubview:_TitleLbl];
-    [_alertView addSubview:nextBtn];
+    [_alertView addSubview:_nextBtn];
     [_alertView addSubview:_pickerView];
-    [_pickerView addSubview:colonLbl];
+    [_pickerView addSubview:_colonLbl];
     
     [cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_alertView.mas_left).mas_offset(16);
@@ -156,7 +169,7 @@
         make.height.equalTo(@(50));
     }];
     
-    [nextBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_nextBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.width.height.equalTo(cancelBtn);
         make.right.equalTo(_alertView.mas_right).mas_offset(-16);
     }];
@@ -166,10 +179,64 @@
         make.top.equalTo(_TitleLbl.mas_bottom);
     }];
     
-    [colonLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_colonLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.centerY.equalTo(_pickerView);
     }];
 }
+
+
+- (void)setStartModel:(JGCalendarDayModel *)StartModel {
+    _StartModel = StartModel;
+    
+    NSDate *CurDate = [NSDate date];
+    
+    int result = [self compareOneDay:CurDate withAnotherDay:StartModel.date];
+    if (result != 0) return;
+    
+//    JGLog(@"%d", result);
+
+    self.CurrentHour = CurDate.dateHour;
+    self.CurrentMinute = CurDate.dateMinute;
+    
+    if (self.CurrentMinute > 45) {
+        
+        self.CurrentHour += 1;
+    }
+    
+    
+//    [_pickerView reloadAllComponents];
+
+    //滚动到指定位置
+    
+    [self.pickerView selectRow:self.CurrentHour inComponent:0 animated:YES];
+    [self pickerView:self.pickerView didSelectRow:self.CurrentHour inComponent:0];
+    
+    NSInteger MinuteRow = [self GetMinuteRowWithMinute:self.CurrentMinute];
+    
+//    JGLog(@"%ld",MinuteRow);
+    
+    
+    [self.pickerView selectRow:MinuteRow inComponent:1 animated:YES];
+    [self pickerView:self.pickerView didSelectRow:MinuteRow inComponent:1];
+}
+
+
+
+- (NSInteger)GetMinuteRowWithMinute:(NSInteger)Minute {
+    
+    if (Minute < 15) {
+        return 1;
+    }else if (Minute < 30) {
+        return 2;
+    }else if (Minute < 45) {
+        return 3;
+    }else if (Minute < 30) {
+        return 4;
+    }
+    return 0;
+    
+}
+
 
 
 - (void)nextBtnClick {
@@ -231,20 +298,51 @@
         pView = [[JGAvailableTimeChooseActionSheetView alloc] initWithFrame:CGRectMake(0, 0, kDeviceWidth / 2.0, 50)];
     }
     
-    NSString * title = @"";
-    switch (component)
-    {
-        case 0: title =   self.HourArrM[row];break;
-        case 1: title =   self.MinuteArrM[row];break;
-        default:break;
+    NSString * Hour = @"";
+    NSString * Minute = @"";
+    UIColor *textColor = JGHexColor(@"#282828");
+    switch (component) {
+        case 0:
+            {
+               Hour =   self.HourArrM[row];
+                pView.TitleLbl.text=Hour;
+            }
+            break;
+        case 1:
+        {
+            Minute =  self.MinuteArrM[row];
+            pView.TitleLbl.text=Minute;
+        }
+            break;
+        default:
+            break;
     }
-//    pView.TitleLbl.textAlignment = NSTextAlignmentCenter;
-    pView.TitleLbl.text=title;
+    
+
+    if (self.CurrentHour == -1 && self.CurrentMinute == -1) {
+        
+        textColor = JGHexColor(@"#282828");
+
+    }else {
+      
+        if (self.isTimeOut) {
+            
+            textColor = [UIColor lightGrayColor];
+        }else {
+            
+            textColor = JGHexColor(@"#282828");
+        }
+    }
+    
+    _colonLbl.textColor = textColor;
+    
+    pView.TitleLbl.textColor = textColor;
+    
     return pView;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    
+ 
     if (component == 0) {
         
         _HourStr = [self.HourArrM objectAtIndex:row];
@@ -252,6 +350,32 @@
         
         _MinuteStr = [self.MinuteArrM objectAtIndex:row];
     }
+    
+    
+    if (self.CurrentHour == -1 && self.CurrentMinute == -1) return;
+    
+    NSString *dateStr = [NSString stringWithFormat:@"%ld-%02ld-%02ld %@:%@:00",self.StartModel.year, self.StartModel.month,self.StartModel.day,_HourStr,_MinuteStr];
+    
+    NSDate *date = [NSDate dateFromString:dateStr];
+    
+    self.isTimeOut = date.isTimeout;
+    
+//    JGLog(@"isTimeOut: %d",self.isTimeOut);
+    
+    
+    if (date.isTimeout) {
+        
+        _TitleLbl.text = @"本时间不可租";
+        _TitleLbl.textColor = JGHexColor(@"#EA6F5A");
+        _nextBtn.enabled = NO;
+    }else {
+        
+        _TitleLbl.text = @"请选择时间";
+        _TitleLbl.textColor = JG333Color;
+        _nextBtn.enabled = YES;
+    }
+    
+    [pickerView reloadAllComponents];
 }
 
 
@@ -295,6 +419,34 @@
 //    JGLog(@"ActionSheet销毁了");
 //}
 
-
+//时间大小比较
+- (int)compareOneDay:(NSDate *)oneDay withAnotherDay:(NSDate *)anotherDay {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    
+    //yyyy-MM-dd HH:mm:ss
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    
+    NSString *oneDayStr = [dateFormatter stringFromDate:oneDay];
+    
+    NSString *anotherDayStr = [dateFormatter stringFromDate:anotherDay];
+    
+    NSDate *dateA = [dateFormatter dateFromString:oneDayStr];
+    
+    NSDate *dateB = [dateFormatter dateFromString:anotherDayStr];
+    
+    NSComparisonResult result = [dateA compare:dateB];
+    
+    if (result == NSOrderedDescending) {
+        //NSLog(@"oneDay比 anotherDay时间晚");
+        return 1;
+    }
+    else if (result == NSOrderedAscending){
+        //NSLog(@"oneDay比 anotherDay时间早");
+        return -1;
+    }
+    //NSLog(@"两者时间是同一个时间");
+    return 0;
+    
+}
 
 @end

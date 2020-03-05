@@ -7,9 +7,22 @@
 //
 
 #import "NSDate+JGCalendar.h"
+#import "NSCalendar+JGExtension.h"
 
 @implementation NSDate (JGCalendar)
 
+- (NSInteger)dateMinute {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSCalendarUnitMinute fromDate:self];
+    return components.minute;
+}
+
+- (NSInteger)dateHour {
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSCalendarUnitHour fromDate:self];
+    return components.hour;
+}
 
 - (NSInteger)dateDay {
     NSCalendar *calendar = [NSCalendar currentCalendar];
@@ -284,7 +297,8 @@
 + (int)compareOneDay:(NSDate *)oneDay withAnotherDay:(NSDate *)anotherDay {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     
-    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+    //yyyy-MM-dd HH:mm:ss
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     
     NSString *oneDayStr = [dateFormatter stringFromDate:oneDay];
     
@@ -352,6 +366,24 @@
     }
 }
 
+- (BOOL)isTimeout {
+    
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyyMMdd HH:mm";
+    
+    NSString *selfString = [fmt stringFromDate:self];
+    NSString *nowString = [fmt stringFromDate:[NSDate date]];
+    
+    NSDate *selfDate = [fmt dateFromString:selfString];
+    NSDate *nowDate = [fmt dateFromString:nowString];
+    
+    NSComparisonResult result = [selfDate compare:nowDate];
+    
+    //        JGLog(@"%@ ---  %@",selfDate, nowDate);
+    //        JGLog(@"-----   %ld",result);
+    
+    return result==-1;
+}
 
 
 @end
