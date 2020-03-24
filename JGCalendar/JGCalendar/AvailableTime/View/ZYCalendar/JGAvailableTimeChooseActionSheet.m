@@ -8,7 +8,6 @@
 
 #import "JGAvailableTimeChooseActionSheet.h"
 
-
 #define AlertHeight (kDeviceHight - 274)
 
 

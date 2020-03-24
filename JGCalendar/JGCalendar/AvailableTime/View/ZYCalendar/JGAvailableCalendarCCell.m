@@ -115,6 +115,7 @@
         _TitleLbl.textColor = [UIColor whiteColor];
     }
 
+//    [self layoutIfNeeded];
     
 }
 

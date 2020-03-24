@@ -196,6 +196,7 @@ static NSString * const JGAvailableCalendarCCellId = @"JGAvailableCalendarCCellI
     JGAvailableCalendarCCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:JGAvailableCalendarCCellId forIndexPath:indexPath];
     JGCalendarDayModel *Model = [[self.calendarMonth objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     cell.Model = Model;
+    [cell setNeedsLayout];
     return cell;
 }
 

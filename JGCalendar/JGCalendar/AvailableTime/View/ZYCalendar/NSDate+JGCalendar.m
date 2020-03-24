@@ -8,7 +8,6 @@
 
 #import "NSDate+JGCalendar.h"
 
-
 @implementation NSDate (JGCalendar)
 
 - (NSInteger)dateMinute {
@@ -366,6 +365,8 @@
     }
 }
 
+
+
 - (BOOL)isTimeout {
     
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
@@ -384,6 +385,5 @@
     
     return result==-1;
 }
-
 
 @end
